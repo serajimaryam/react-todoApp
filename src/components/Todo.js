@@ -5,5 +5,6 @@ export default function Todo(props){
    <input type="checkbox" checked={props.status} />
    <span>{props.title}</span>
   <button className="delete-btn">delete</button>
- </div>); 
+ </div>
+ ); 
 }
