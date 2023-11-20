@@ -6,6 +6,22 @@ import Actions from "./components/Actions.jsx";
 const todos = [];
 function App() {
   const [list,setList] = useState([]);
+  const toggleStatus= (title) => {
+    const nextList = list.map((todo) => {
+      if (todo.title === title){
+        return {
+          title: todo.title,
+          status: !todo.status,
+        }
+      }
+      return todo;              
+    });
+     console.log("toggle",list,nextList)
+     setList(nextList)
+  }
+  
+  
+
   return (
     <div className="container">
          
@@ -25,8 +41,10 @@ function App() {
          <Actions />
          <br />
          <br />
-         { list.map((props) => {
-          return  <Todo  title={props.title}  status={props.status } /> 
+         { list.map((todo) => {
+          return  <Todo title={todo.title} status={todo.status } 
+          handleCheck={toggleStatus}
+          /> 
           
           
          })}

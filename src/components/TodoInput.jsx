@@ -3,20 +3,22 @@ function onAddItem(){
     
 }
 export default function TodoInput(props){
-    const [my_string, update_string] = useState("")
+    const [inputValue, setInputValue] = useState("")
     return(
         <div>
         <input 
+        value={inputValue}
         onChange={(e) =>{
             const char = e.target.value;
-            update_string(char);
+            setInputValue(char);
             
         }}
         type="text"
         placeholder="Write your todo.." 
         id="title"/>
         <button onClick={() => {
-            props.handleSubmit(my_string);         
+            props.handleSubmit(inputValue); 
+            setInputValue("");
 
         }}
 

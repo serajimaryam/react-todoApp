@@ -5,13 +5,15 @@ export default function Todo(props){
     
    return (
    <div className="todo">
-   <input type="checkbox" checked={props.status} />
+   <input  handleToggleStatus={() => {
+
+   }}type="checkbox" checked={props.status} onClick={() => {
+      props.handleCheck(props.title);
+   }}
+    />
    <span>{props.title}</span>
-  <button  onClick ={(e) => {
-     console.log("salam",e);
-     props.handleDeleteItem(deleteItem)
-  }}
-  className="delete-btn">delete</button>
+
+  <button  className="delete-btn">delete</button>
  </div>
  ); 
 }
